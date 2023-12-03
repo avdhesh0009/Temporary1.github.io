@@ -1,0 +1,84 @@
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin7Line } from "react-icons/ri";
+import Data from  '../Data/Data.json'
+import { useState } from "react";
+
+export default function Home(){
+
+
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                        {tableData.map((d, i) => (
+                            <tr key={i}>
+                                <td class="whitespace-nowrap px-4 py-4">
+                                    <div class="flex items-center">
+                                        <div>
+                                            <input type="checkbox"  id={checkbox-${i}} onChange={() => handleCheckboxChange(i)}/>
+                                            {/*  */}
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">
+                                                {d.name} {/* Assuming you meant to use d.name instead of name */}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="whitespace-nowrap px-12 py-4">
+                                    <div class="text-sm font-medium text-gray-900">{d.email}</div>
+                                </td>
+                                <td class="whitespace-nowrap px-4 py-4">
+                                    <span class="inline-flex px-2 text-sm font-medium text-gray-900 leading-5">
+                                        member
+                                    </span>
+                                </td>
+                                <td class="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
+                                    <div className="flex gap-2">
+                                        <button onClick={() => handleEdit(i)} className="border-2 p-2 rounded-md"><FaEdit/></button>
+                                        <button onClick={() => handleDelete(i)} className="border-2 p-2 rounded-md text-red-500"><RiDeleteBin7Line /></button>
+                                    </div>
+                                </td>
+                                <td class="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
+                                </td>
+                            </tr>
+                        ))}
+                     </tbody>
+                    </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </section>
+            {editIndex !== null && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-75">
+          <div className="bg-white p-4 rounded-md">
+            {/* Inline Edit Form */}
+            <div className="flex items-center">
+              {/* Assuming you have an input for each property */}
+              <input
+                type="text"
+                value={tableData[editIndex].name}
+                onChange={(e) => handleInputChange(e, 'name')}
+                onKeyDown={(e) => handleKeyDown(e, 'name')}
+              />
+              <input
+                type="text"
+                value={tableData[editIndex].email}
+                onChange={(e) => handleInputChange(e, 'email')}
+                onKeyDown={(e) => handleKeyDown(e, 'email')}
+              />
+
+                <input
+                type="text"
+                value={tableData[editIndex].member}
+                onChange={(e) => handleInputChange(e, 'member')}
+                onKeyDown={(e) => handleKeyDown(e, 'member')}
+                />
+                            {/* Add other input fields as needed */}
+            </div>
+          </div>
+        </div>
+      )}
+        </>
+    )
+}
+
+<script src="https://kit.fontawesome.com/07fe73c71d.js" crossorigin="anonymous"></script>
